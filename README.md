@@ -4,6 +4,9 @@ Uprise generates [Shepard tones](https://en.wikipedia.org/wiki/Shepard_tone).
 These are sounds that always increase in pitch locally, but maintain constant
 average pitch globally (over a time domain).
 
+An example of its output can be found
+[here](https://soundcloud.com/user-889310662/shepard-tone-aug7-chord).
+
 ## Features
 
 - Outputs Shepard tones in `wav` format (16bit, 44100Hz, mono).
