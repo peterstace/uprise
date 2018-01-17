@@ -12,6 +12,7 @@ const sampleHz = 44100
 
 func main() {
 	out := flag.String("out", "out.wav", "output location")
+	gain := flag.Float64("gain", 0.05, "volume gain")
 	octavesHz := flag.Float64("octavesHz", 0.1, "octaves per second rise in pitch")
 	durationSec := flag.Float64("durationSec", 60, "duration in seconds of generated wav")
 	chordName := flag.String("chordName", "maj", "chord to play")
@@ -24,6 +25,7 @@ func main() {
 		duration:       time.Duration(*durationSec * float64(time.Second)),
 		volumeCenterHz: *volumeCenterHz,
 		volumeStdDevHz: *volumeStdDevHz,
+		gain:           *gain,
 	}
 	chord, ok := chordForName(*chordName)
 	if !ok {
@@ -50,6 +52,8 @@ type config struct {
 
 	volumeCenterHz float64
 	volumeStdDevHz float64
+
+	gain float64
 }
 
 type uprise struct {
@@ -123,7 +127,7 @@ func (u *uprise) calculateSample(t time.Duration) int16 {
 	}
 
 	// Scale down to reduce clipping.
-	s *= 0.05
+	s *= u.cfg.gain
 	return quantize(s)
 }
 

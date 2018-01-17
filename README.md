@@ -8,12 +8,14 @@ average pitch globally (over a time domain).
 
 - Outputs Shepard tones in `wav` format (16bit, 44100Hz, mono).
 
+- Support for many chords: major, minor, augmented, diminished, major 6th,
+  minor 6th, dominant 7th, major 7th, minor 7th, augmented 7th.
+
 - Customisable pitch increase speed.
 
 - Customisable volume modulation.
 
-- Support for many chords: major, minor, augmented, diminished, major 6th,
-  minor 6th, dominant 7th, major 7th, minor 7th, augmented 7th.
+- Adjustable output volume gain.
 
 ## To Run
 
